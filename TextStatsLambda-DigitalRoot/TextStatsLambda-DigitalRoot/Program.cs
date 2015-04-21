@@ -10,7 +10,6 @@ namespace TextStatsLambda_DigitalRoot
     {
         static void Main(string[] args)
         {
-            DigitalRoot("31337");
         }
 
         public static int DigitalRoot(string rootThisNumber)
@@ -47,39 +46,19 @@ namespace TextStatsLambda_DigitalRoot
 
         public static int NumberOfVowels(string inputString)
         {
-            //make counter 
-            int counterVowel = 0;
-            //check all vowels in input and adds to counter
-            foreach (char letter in inputString.Where(x => "aeiou".Contains(x.ToString().ToLower())))
-            {
-                counterVowel++;
-            }
-            return counterVowel;
+            return inputString.Count(x => "aeiou".Contains(char.ToLower(x)));
         }
 
         public static int NumberOfConsonants(string inputString)
         {
-            //make counter
-            int counterConsonants = 0;
-            //check all consonants in input and adds to counter
-            foreach (char letter in inputString.Where(x => "bcdfghjklmnpqrstvwxyz".Contains(x.ToString().ToLower())))
-            {
-                counterConsonants++;
-            }
-            return counterConsonants;
+            return inputString.Count(x => "bcdfghjklmnpqrstvwxyz".Contains(char.ToLower(x)));
         }
 
         public static int NumberOfSpecialCharacters(string inputString)
         {
             // .,?;'!@#$%^&*() and spaces are considered special characters
             //make counter
-            int counterSpecial = 0;
-            //check all special in input and add to counter
-            foreach (char Special in inputString.Where(x => " .,?;'!@#$%^&*()".Contains(x.ToString())))
-            {
-                counterSpecial++;
-            }
-            return counterSpecial;
+            return inputString.Count(x => " .,?;'!@#$%^&*()".Contains(char.ToLower(x)));
         }
 
         public static string LongestWord(string inputString)
