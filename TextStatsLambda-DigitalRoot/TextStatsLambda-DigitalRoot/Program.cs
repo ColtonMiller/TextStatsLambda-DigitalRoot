@@ -15,22 +15,54 @@ namespace TextStatsLambda_DigitalRoot
 
         public static int DigitalRoot(string rootThisNumber)
         {
-            return 0;
+            //make a sum
+            string sum = string.Empty;
+            //make digital root
+            int digitalSum = 0;
+            //add to sum
+            foreach (int number in rootThisNumber)
+            {
+                sum += number;
+            }
+            //add two numbers of sum to digital root
+            foreach (int number in sum)
+            {
+                digitalSum += number;
+            }
+            //return digit root
+            return digitalSum;
         }
 
         public static int NumberOfWords(string inputString)
         {
-            return 0;
+            //split by space into array and count
+           int words = inputString.Split(' ').Count();
+            //return words
+           return words;
         }
 
         public static int NumberOfVowels(string inputString)
         {
-            return 0;
+            //make counter 
+            int counterVowel = 0;
+            //check all vowels in input and adds to counter
+            foreach (char letter in inputString.Where(x => "aeiou".Contains(x.ToString().ToLower())))
+            {
+                counterVowel++;
+            }
+            return counterVowel;
         }
 
         public static int NumberOfConsonants(string inputString)
         {
-            return 0;
+            //make counter
+            int counterConsonants = 0;
+            //check all consonants in input and adds to counter
+            foreach (char letter in inputString.Where(x => "bcdfghjklmnpqrstvwxyz".Contains(x.ToString().ToLower())))
+            {
+                counterConsonants++;
+            }
+            return counterConsonants;
         }
 
         public static int NumberOfSpecialCharacters(string inputString)
