@@ -10,24 +10,28 @@ namespace TextStatsLambda_DigitalRoot
     {
         static void Main(string[] args)
         {
-
+            DigitalRoot("31337");
         }
 
         public static int DigitalRoot(string rootThisNumber)
         {
+            
             //make a sum
-            string sum = string.Empty;
+            int sum = 0;
             //make digital root
             int digitalSum = 0;
             //add to sum
-            foreach (int number in rootThisNumber)
+            foreach (char number in rootThisNumber)
             {
-                sum += number;
+                int tempNumber = int.Parse(number.ToString());
+                sum += tempNumber;
+                
             }
             //add two numbers of sum to digital root
-            foreach (int number in sum)
+            foreach (char number in sum.ToString())
             {
-                digitalSum += number;
+                int tempNumber = int.Parse(number.ToString());
+                digitalSum += tempNumber;
             }
             //return digit root
             return digitalSum;
@@ -68,17 +72,27 @@ namespace TextStatsLambda_DigitalRoot
         public static int NumberOfSpecialCharacters(string inputString)
         {
             // .,?;'!@#$%^&*() and spaces are considered special characters
-            return 0;
+            //make counter
+            int counterSpecial = 0;
+            //check all special in input and add to counter
+            foreach (char Special in inputString.Where(x => " .,?;'!@#$%^&*()".Contains(x.ToString())))
+            {
+                counterSpecial++;
+            }
+            return counterSpecial;
         }
 
         public static string LongestWord(string inputString)
         {
-            return string.Empty;
+            //split input to array
+         
+
+            return inputString.Split(' ').ToList<string>().OrderByDescending(x => x.Length).First().ToString();
         }
 
         public static string ShortestWord(string inputString)
         {
-            return string.Empty;
+            return inputString.Split(' ').ToList<string>().OrderBy(x => x.Length).First().ToString();
         }
 
 
